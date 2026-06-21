@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROS 2 ile Başlangıç Rehberi — Harun Ensarioğlu</title>
+  <link rel="stylesheet" href="../../assets/css/index.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/pages.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    .post { padding-top: 100px; max-width: 800px; margin: 0 auto; padding-inline: var(--space-8); }
+    .post__header { margin-bottom: var(--space-10); }
+    .post__back { display: inline-flex; align-items: center; gap: var(--space-2); font-family: var(--font-mono); font-size: var(--fs-sm); color: var(--clr-cyan); margin-bottom: var(--space-6); }
+    .post__back:hover { gap: var(--space-3); }
+    .post__meta { display: flex; gap: var(--space-4); font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--clr-text-muted); margin-top: var(--space-4); }
+    .post__title { font-size: clamp(var(--fs-3xl), 4vw, var(--fs-5xl)); }
+    .post__body { line-height: 1.9; color: var(--clr-text-secondary); }
+    .post__body h2 { font-size: var(--fs-2xl); color: var(--clr-text-primary); margin: var(--space-10) 0 var(--space-4); }
+    .post__body p { margin-bottom: var(--space-5); }
+    .post__body code { font-family: var(--font-mono); background: var(--clr-surface-2); padding: 2px 6px; border-radius: var(--radius-sm); font-size: var(--fs-sm); color: var(--clr-cyan); }
+    .post__body pre { background: #0D0D12; border: 1px solid var(--clr-border); border-radius: var(--radius-lg); padding: var(--space-6); overflow-x: auto; margin: var(--space-6) 0; }
+    .post__body pre code { background: none; padding: 0; color: var(--clr-text-secondary); }
+    .post__nav { display: flex; justify-content: space-between; border-top: 1px solid var(--clr-border); padding-top: var(--space-8); margin-top: var(--space-12); margin-bottom: var(--space-16); }
+    .post__nav a { color: var(--clr-cyan); font-family: var(--font-mono); font-size: var(--fs-sm); }
+  </style>
+</head>
+<body>
+<nav class="navbar scrolled">
+  <div class="container navbar__inner">
+    <a href="../../index.html" class="navbar__logo">H<span>.</span>E</a>
+    <div class="navbar__nav">
+      <a href="../index.html" class="navbar__link active">Blog</a>
+      <a href="../../index.html#projects" class="navbar__link">Projeler</a>
+      <a href="../../index.html#contact" class="navbar__link">İletişim</a>
+    </div>
+  </div>
+</nav>
+
+<article class="post">
+  <div class="post__header">
+    <a href="../index.html" class="post__back">← Blog'a Dön</a>
+    <h1 class="post__title">ROS 2 ile <span class="highlight">Başlangıç</span> Rehberi</h1>
+    <div class="post__meta">
+      <span><i class="fa-regular fa-calendar"></i> 2025-06-20</span>
+      <span><i class="fa-regular fa-clock"></i> 5 dk okuma</span>
+      <span><span class="badge badge--sm">Robotik</span></span>
+    </div>
+  </div>
+
+  <div class="post__body">
+    <p>Robot Operating System (ROS), robotik yazılım geliştirme dünyasının en önemli araçlarından biridir. Bu yazıda ROS 2'ye giriş yapacağız.</p>
+
+    <h2>>_ ROS 2 Nedir?</h2>
+    <p>ROS 2, robotik uygulamalar için açık kaynaklı bir middleware framework'üdür. DDS (Data Distribution Service) üzerine kurulu olan ROS 2, gerçek zamanlı iletişim ve cross-platform desteği sağlar.</p>
+
+    <h2>>_ Kurulum</h2>
+    <p>Ubuntu 22.04 üzerinde ROS 2 Humble kurulumu:</p>
+    <pre><code>sudo apt update && sudo apt install ros-humble-desktop
+source /opt/ros/humble/setup.bash
+echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc</code></pre>
+
+    <h2>>_ İlk Node</h2>
+    <p>Python ile basit bir publisher node oluşturalım:</p>
+    <pre><code>import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+
+class MinimalPublisher(Node):
+    def __init__(self):
+        super().__init__('minimal_publisher')
+        self.publisher_ = self.create_publisher(String, 'topic', 10)
+        self.timer = self.create_timer(0.5, self.timer_callback)
+
+    def timer_callback(self):
+        msg = String()
+        msg.data = 'Merhaba ROS 2!'
+        self.publisher_.publish(msg)
+
+def main():
+    rclpy.init()
+    node = MinimalPublisher()
+    rclpy.spin(node)
+
+if __name__ == '__main__':
+    main()</code></pre>
+
+    <p>Bu basit node, 0.5 saniyede bir <code>topic</code> kanalına mesaj yayınlar. Robotik projelerinizde sensör verisi, kontrol komutları ve daha fazlası için bu yapıyı genişletebilirsiniz.</p>
+
+    <h2>>_ Sonraki Adımlar</h2>
+    <p>Bir sonraki yazıda <strong>Gazebo ile simülasyon</strong> ve <strong>MoveIt ile hareket planlama</strong> konularını ele alacağız.</p>
+  </div>
+
+  <div class="post__nav">
+    <span></span>
+    <a href="isaac-sim-quadruped.html">Isaac Sim ile Quadruped →</a>
+  </div>
+</article>
+</body>
+</html>

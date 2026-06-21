@@ -1,0 +1,374 @@
+/* ==========================================================================
+   HARUN ENSARİOĞLU — Design System
+   Robotics & AI Personal Portfolio
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Google Fonts Import
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+
+/* --------------------------------------------------------------------------
+   2. CSS Custom Properties (Design Tokens)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Colors */
+  --clr-bg:          #0A0A0F;
+  --clr-surface:     #12121A;
+  --clr-surface-2:   #1A1A28;
+  --clr-border:      rgba(0, 229, 255, 0.12);
+  --clr-border-glow: rgba(0, 229, 255, 0.4);
+
+  /* Accent */
+  --clr-cyan:        #00E5FF;
+  --clr-cyan-dim:    rgba(0, 229, 255, 0.15);
+  --clr-purple:      #7C3AED;
+  --clr-purple-dim:  rgba(124, 58, 237, 0.15);
+  --clr-green:       #00FF88;
+
+  /* Gradient */
+  --gradient-main:   linear-gradient(135deg, #00E5FF, #7C3AED);
+  --gradient-subtle: linear-gradient(135deg, rgba(0,229,255,0.1), rgba(124,58,237,0.1));
+
+  /* Text */
+  --clr-text-primary:   #F0F0F5;
+  --clr-text-secondary: #8A8A9A;
+  --clr-text-muted:     #4A4A5A;
+
+  /* Typography */
+  --font-display: 'Orbitron', 'Courier New', monospace;
+  --font-body:    'Space Grotesk', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+
+  /* Font Sizes (fluid) */
+  --fs-xs:   0.75rem;    /* 12px */
+  --fs-sm:   0.875rem;   /* 14px */
+  --fs-base: 1rem;       /* 16px */
+  --fs-lg:   1.125rem;   /* 18px */
+  --fs-xl:   1.25rem;    /* 20px */
+  --fs-2xl:  1.5rem;     /* 24px */
+  --fs-3xl:  1.875rem;   /* 30px */
+  --fs-4xl:  2.25rem;    /* 36px */
+  --fs-5xl:  3rem;       /* 48px */
+  --fs-6xl:  3.75rem;    /* 60px */
+  --fs-7xl:  4.5rem;     /* 72px */
+
+  /* Spacing */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows / Glows */
+  --shadow-cyan:   0 0 20px rgba(0, 229, 255, 0.25), 0 0 60px rgba(0, 229, 255, 0.08);
+  --shadow-purple: 0 0 20px rgba(124, 58, 237, 0.25), 0 0 60px rgba(124, 58, 237, 0.08);
+  --shadow-card:   0 4px 24px rgba(0, 0, 0, 0.4), 0 1px 4px rgba(0, 0, 0, 0.6);
+  --glow-text-cyan: 0 0 20px rgba(0, 229, 255, 0.6), 0 0 40px rgba(0, 229, 255, 0.3);
+
+  /* Transitions */
+  --transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base:   300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow:   600ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Layout */
+  --max-width: 1280px;
+  --section-padding: var(--space-32) var(--space-8);
+}
+
+/* --------------------------------------------------------------------------
+   3. CSS Reset
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  color: var(--clr-text-primary);
+  background-color: var(--clr-bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, video, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+/* --------------------------------------------------------------------------
+   4. Grid Background Pattern
+   -------------------------------------------------------------------------- */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --------------------------------------------------------------------------
+   5. Layout Utilities
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-8);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-inline: var(--space-5);
+  }
+}
+
+.section {
+  position: relative;
+  padding: var(--section-padding);
+  z-index: 1;
+}
+
+.section--alt {
+  background: var(--clr-surface);
+  border-top: 1px solid var(--clr-border);
+  border-bottom: 1px solid var(--clr-border);
+}
+
+/* --------------------------------------------------------------------------
+   6. Section Header Component
+   -------------------------------------------------------------------------- */
+.section-header {
+  margin-bottom: var(--space-16);
+  text-align: center;
+}
+
+.section-header__label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--clr-cyan);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
+}
+
+.section-header__label::before {
+  content: '>_';
+  opacity: 0.7;
+}
+
+.section-header__title {
+  font-size: clamp(var(--fs-3xl), 4vw, var(--fs-5xl));
+  color: var(--clr-text-primary);
+  position: relative;
+  display: inline-block;
+}
+
+.section-header__title .highlight {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-header__line {
+  width: 80px;
+  height: 2px;
+  background: var(--gradient-main);
+  margin: var(--space-5) auto 0;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-cyan);
+}
+
+.section-header__desc {
+  max-width: 600px;
+  margin: var(--space-5) auto 0;
+  color: var(--clr-text-secondary);
+  font-size: var(--fs-lg);
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   7. Typography Utilities
+   -------------------------------------------------------------------------- */
+.text-gradient {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-cyan    { color: var(--clr-cyan); }
+.text-purple  { color: var(--clr-purple); }
+.text-green   { color: var(--clr-green); }
+.text-muted   { color: var(--clr-text-secondary); }
+.font-display { font-family: var(--font-display); }
+.font-mono    { font-family: var(--font-mono); }
+
+/* --------------------------------------------------------------------------
+   8. Glow & Neon Utilities
+   -------------------------------------------------------------------------- */
+.glow-cyan {
+  box-shadow: var(--shadow-cyan);
+  border-color: var(--clr-cyan) !important;
+}
+
+.glow-purple {
+  box-shadow: var(--shadow-purple);
+  border-color: var(--clr-purple) !important;
+}
+
+.glow-text {
+  text-shadow: var(--glow-text-cyan);
+}
+
+/* --------------------------------------------------------------------------
+   9. Scroll Animations (Intersection Observer)
+   -------------------------------------------------------------------------- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Staggered delay helpers */
+.delay-1 { transition-delay: 100ms; }
+.delay-2 { transition-delay: 200ms; }
+.delay-3 { transition-delay: 300ms; }
+.delay-4 { transition-delay: 400ms; }
+.delay-5 { transition-delay: 500ms; }
+.delay-6 { transition-delay: 600ms; }
+
+/* --------------------------------------------------------------------------
+   10. Scrollbar Styling
+   -------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--clr-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--clr-purple);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--clr-cyan);
+}
+
+/* --------------------------------------------------------------------------
+   11. Selection
+   -------------------------------------------------------------------------- */
+::selection {
+  background: rgba(0, 229, 255, 0.2);
+  color: var(--clr-cyan);
+}
+
+/* --------------------------------------------------------------------------
+   12. Focus Visible
+   -------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--clr-cyan);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* --------------------------------------------------------------------------
+   13. Responsive Helpers
+   -------------------------------------------------------------------------- */
+.hide-mobile  { display: block; }
+.show-mobile  { display: none; }
+
+@media (max-width: 768px) {
+  .hide-mobile { display: none; }
+  .show-mobile { display: block; }
+  :root {
+    --section-padding: var(--space-20) var(--space-5);
+  }
+}

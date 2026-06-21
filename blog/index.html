@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Harun Ensarioğlu</title>
+  <meta name="description" content="Robotik, AI ve teknoloji üzerine yazılar.">
+  <link rel="stylesheet" href="../assets/css/index.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/pages.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    .blog-page { padding-top: 100px; min-height: 100vh; }
+    .blog-filters { display: flex; justify-content: center; gap: var(--space-3); flex-wrap: wrap; margin-bottom: var(--space-10); }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: var(--space-6); }
+    .blog-card__img { width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-lg); border: 1px solid var(--clr-border); }
+    .blog-card__category { margin-top: var(--space-3); }
+    .empty-state { text-align: center; padding: var(--space-16); color: var(--clr-text-muted); font-family: var(--font-mono); }
+  </style>
+</head>
+<body>
+<nav class="navbar scrolled">
+  <div class="container navbar__inner">
+    <a href="../index.html" class="navbar__logo">H<span>.</span>E</a>
+    <div class="navbar__nav">
+      <a href="../index.html#about" class="navbar__link">Hakkımda</a>
+      <a href="../index.html#projects" class="navbar__link">Projeler</a>
+      <a href="../cv/index.html" class="navbar__link">CV</a>
+      <a href="../index.html#contact" class="navbar__link">İletişim</a>
+    </div>
+  </div>
+</nav>
+
+<section class="blog-page section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header__label">Blog</div>
+      <h1 class="section-header__title">Yazılar & <span class="highlight">Araştırmalar</span></h1>
+      <div class="section-header__line"></div>
+      <p class="section-header__desc">Robotik, yapay zeka ve teknoloji üzerine düşüncelerim ve deneyimlerim.</p>
+    </div>
+
+    <div class="blog-filters">
+      <button class="chip active" data-filter="all">Tümü</button>
+      <button class="chip" data-filter="robotics">Robotik</button>
+      <button class="chip" data-filter="ai">Yapay Zeka</button>
+      <button class="chip" data-filter="uav">UAV</button>
+      <button class="chip" data-filter="tutorial">Tutorial</button>
+    </div>
+
+    <div class="blog-grid" id="blogGrid">
+      <!-- Example post card -->
+      <a href="posts/ros2-baslangic.html" class="card card--blog" data-category="robotics tutorial">
+        <div style="height:200px;border-radius:var(--radius-lg);background:var(--gradient-subtle);border:1px solid var(--clr-border);display:flex;align-items:center;justify-content:center;color:var(--clr-text-muted);font-family:var(--font-mono);font-size:var(--fs-sm);margin-bottom:var(--space-4)">
+          <i class="fa-solid fa-robot" style="font-size:3rem;opacity:.3"></i>
+        </div>
+        <div class="card__meta">
+          <span class="card__date">2025-06-20</span>
+          <span class="card__read-time">5 dk okuma</span>
+        </div>
+        <h3 class="card__title">ROS 2 ile Başlangıç Rehberi</h3>
+        <p class="card__desc">Robot Operating System 2'ye giriş. Temel kavramlar, kurulum ve ilk node oluşturma.</p>
+        <div class="blog-card__category"><span class="badge">Robotik</span> <span class="badge--green badge">Tutorial</span></div>
+      </a>
+
+      <a href="posts/isaac-sim-quadruped.html" class="card card--blog" data-category="robotics ai">
+        <div style="height:200px;border-radius:var(--radius-lg);background:var(--gradient-subtle);border:1px solid var(--clr-border);display:flex;align-items:center;justify-content:center;color:var(--clr-text-muted);font-family:var(--font-mono);font-size:var(--fs-sm);margin-bottom:var(--space-4)">
+          <i class="fa-solid fa-paw" style="font-size:3rem;opacity:.3"></i>
+        </div>
+        <div class="card__meta">
+          <span class="card__date">2025-06-15</span>
+          <span class="card__read-time">8 dk okuma</span>
+        </div>
+        <h3 class="card__title">Isaac Sim ile Quadruped Robot Simülasyonu</h3>
+        <p class="card__desc">NVIDIA Isaac Sim ortamında dört ayaklı robot simülasyonu ve RL ile yürüyüş öğrenme.</p>
+        <div class="blog-card__category"><span class="badge--purple badge">AI</span> <span class="badge">Robotik</span></div>
+      </a>
+    </div>
+
+    <div class="empty-state" id="emptyState" style="display:none">
+      <i class="fa-solid fa-search" style="font-size:2rem;margin-bottom:var(--space-4)"></i>
+      <p>>_ Bu kategoride henüz yazı yok.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('.chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    const filter = chip.dataset.filter;
+    const cards = document.querySelectorAll('.card--blog');
+    let visibleCount = 0;
+    cards.forEach(card => {
+      const show = filter === 'all' || card.dataset.category.includes(filter);
+      card.style.display = show ? '' : 'none';
+      if (show) visibleCount++;
+    });
+    document.getElementById('emptyState').style.display = visibleCount === 0 ? '' : 'none';
+  });
+});
+</script>
+</body>
+</html>

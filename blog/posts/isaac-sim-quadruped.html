@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Isaac Sim ile Quadruped Robot — Harun Ensarioğlu</title>
+  <link rel="stylesheet" href="../../assets/css/index.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/pages.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    .post { padding-top: 100px; max-width: 800px; margin: 0 auto; padding-inline: var(--space-8); }
+    .post__header { margin-bottom: var(--space-10); }
+    .post__back { display: inline-flex; align-items: center; gap: var(--space-2); font-family: var(--font-mono); font-size: var(--fs-sm); color: var(--clr-cyan); margin-bottom: var(--space-6); }
+    .post__meta { display: flex; gap: var(--space-4); font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--clr-text-muted); margin-top: var(--space-4); }
+    .post__title { font-size: clamp(var(--fs-3xl), 4vw, var(--fs-5xl)); }
+    .post__body { line-height: 1.9; color: var(--clr-text-secondary); }
+    .post__body h2 { font-size: var(--fs-2xl); color: var(--clr-text-primary); margin: var(--space-10) 0 var(--space-4); }
+    .post__body p { margin-bottom: var(--space-5); }
+    .post__body code { font-family: var(--font-mono); background: var(--clr-surface-2); padding: 2px 6px; border-radius: var(--radius-sm); font-size: var(--fs-sm); color: var(--clr-cyan); }
+    .post__body pre { background: #0D0D12; border: 1px solid var(--clr-border); border-radius: var(--radius-lg); padding: var(--space-6); overflow-x: auto; margin: var(--space-6) 0; }
+    .post__body pre code { background: none; padding: 0; color: var(--clr-text-secondary); }
+    .post__nav { display: flex; justify-content: space-between; border-top: 1px solid var(--clr-border); padding-top: var(--space-8); margin-top: var(--space-12); margin-bottom: var(--space-16); }
+    .post__nav a { color: var(--clr-cyan); font-family: var(--font-mono); font-size: var(--fs-sm); }
+  </style>
+</head>
+<body>
+<nav class="navbar scrolled">
+  <div class="container navbar__inner">
+    <a href="../../index.html" class="navbar__logo">H<span>.</span>E</a>
+    <div class="navbar__nav">
+      <a href="../index.html" class="navbar__link active">Blog</a>
+      <a href="../../index.html#projects" class="navbar__link">Projeler</a>
+    </div>
+  </div>
+</nav>
+
+<article class="post">
+  <div class="post__header">
+    <a href="../index.html" class="post__back">← Blog'a Dön</a>
+    <h1 class="post__title">Isaac Sim ile <span class="highlight">Quadruped</span> Robot Simülasyonu</h1>
+    <div class="post__meta">
+      <span><i class="fa-regular fa-calendar"></i> 2025-06-15</span>
+      <span><i class="fa-regular fa-clock"></i> 8 dk okuma</span>
+      <span><span class="badge badge--purple">AI</span></span>
+    </div>
+  </div>
+
+  <div class="post__body">
+    <p>NVIDIA Isaac Sim, fizik tabanlı robotik simülasyonlar için güçlü bir platformdur. Bu yazıda dört ayaklı (quadruped) robot simülasyonu ve Reinforcement Learning ile yürüyüş öğrenme sürecini anlatacağım.</p>
+
+    <h2>>_ Isaac Sim Nedir?</h2>
+    <p>Isaac Sim, NVIDIA Omniverse platformu üzerine kurulu, yüksek doğrulukta fizik simülasyonu sunan bir robot simülasyon ortamıdır. PhysX motoru ile gerçekçi robot-çevre etkileşimi sağlar.</p>
+
+    <h2>>_ Quadruped Robot Modeli</h2>
+    <p>Anymal, Unitree Go1 gibi popüler quadruped robotlar Isaac Sim'de hazır URDF/USD modelleri olarak bulunur. Simülasyonda bu robotlara <code>JointPositionController</code> ile eklem kontrolü uygulanır.</p>
+
+    <h2>>_ Reinforcement Learning ile Locomotion</h2>
+    <p>Isaac Gym / Isaac Lab ile paralel ortamlarda RL eğitimi yapılır. PPO (Proximal Policy Optimization) algoritması ile robotun yürüyüş politikası öğrenilir:</p>
+    <pre><code># Isaac Lab RL training example
+from omni.isaac.lab.envs import ManagerBasedRLEnv
+
+env = ManagerBasedRLEnv(cfg=AnymalFlatEnvCfg)
+agent = PPOAgent(env)
+agent.train(num_steps=10_000_000)</code></pre>
+
+    <p>Eğitim sonrası öğrenilen politika gerçek robota <strong>sim-to-real transfer</strong> ile aktarılır. Bu süreçte domain randomization kritik öneme sahiptir.</p>
+
+    <h2>>_ Sonuç</h2>
+    <p>Isaac Sim, quadruped robot geliştirme için endüstri standardı haline gelmiştir. RL ile locomotion öğrenme, gerçek dünyada başarılı sonuçlar vermektedir.</p>
+  </div>
+
+  <div class="post__nav">
+    <a href="ros2-baslangic.html">← ROS 2 Başlangıç</a>
+    <span></span>
+  </div>
+</article>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV — Harun Ensarioğlu</title>
+  <meta name="description" content="Harun Ensarioğlu CV - Robotic Software Developer">
+  <link rel="stylesheet" href="../assets/css/index.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/pages.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    .cv-page { padding-top: 100px; min-height: 100vh; }
+    .cv-toggle { display: flex; justify-content: center; gap: var(--space-4); margin-bottom: var(--space-10); }
+    .cv-frame { width: 100%; height: 80vh; border: 1px solid var(--clr-border); border-radius: var(--radius-xl); background: #fff; }
+    .cv-download { display: flex; justify-content: center; gap: var(--space-4); margin-top: var(--space-8); }
+    .cv-section { display: none; }
+    .cv-section.active { display: block; }
+  </style>
+</head>
+<body>
+<nav class="navbar scrolled" id="navbar">
+  <div class="container navbar__inner">
+    <a href="../index.html" class="navbar__logo">H<span>.</span>E</a>
+    <div class="navbar__nav">
+      <a href="../index.html#about" class="navbar__link">Hakkımda</a>
+      <a href="../index.html#projects" class="navbar__link">Projeler</a>
+      <a href="../blog/index.html" class="navbar__link">Blog</a>
+      <a href="../index.html#contact" class="navbar__link">İletişim</a>
+    </div>
+  </div>
+</nav>
+
+<section class="cv-page section" id="cv">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header__label">Özgeçmiş</div>
+      <h1 class="section-header__title">Curriculum <span class="highlight">Vitae</span></h1>
+      <div class="section-header__line"></div>
+    </div>
+
+    <div class="cv-toggle">
+      <button class="btn btn--primary" id="btnTR" onclick="showCV('tr')"><i class="fa-solid fa-flag"></i> Türkçe</button>
+      <button class="btn btn--outline" id="btnEN" onclick="showCV('en')"><i class="fa-solid fa-globe"></i> English</button>
+    </div>
+
+    <div class="cv-section active" id="cvTR">
+      <iframe src="../Harun_Ensarioglu_CV_TR.pdf" class="cv-frame" title="CV Türkçe"></iframe>
+    </div>
+    <div class="cv-section" id="cvEN">
+      <iframe src="../Harun_Ensarioglu_CV_EN.pdf" class="cv-frame" title="CV English"></iframe>
+    </div>
+
+    <div class="cv-download">
+      <a href="../Harun_Ensarioglu_CV_TR.pdf" download class="btn btn--outline btn--sm"><i class="fa-solid fa-download"></i> TR PDF İndir</a>
+      <a href="../Harun_Ensarioglu_CV_EN.pdf" download class="btn btn--outline btn--sm"><i class="fa-solid fa-download"></i> EN PDF Download</a>
+    </div>
+  </div>
+</section>
+
+<script>
+function showCV(lang) {
+  document.getElementById('cvTR').classList.toggle('active', lang === 'tr');
+  document.getElementById('cvEN').classList.toggle('active', lang === 'en');
+  document.getElementById('btnTR').className = lang === 'tr' ? 'btn btn--primary' : 'btn btn--outline';
+  document.getElementById('btnEN').className = lang === 'en' ? 'btn btn--primary' : 'btn btn--outline';
+}
+</script>
+</body>
+</html>

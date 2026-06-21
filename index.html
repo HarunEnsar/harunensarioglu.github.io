@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harun Ensarioğlu — Robotic Software Developer</title>
+  <meta name="description" content="Robotik Yazılım Geliştirici. AI, Computer Vision, Humanoid & Quadruped Robotics.">
+  <meta property="og:title" content="Harun Ensarioğlu — Robotic Software Developer">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="assets/css/index.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="#" class="navbar__logo">H<span>.</span>E</a>
+      <div class="navbar__nav">
+        <a href="#about" class="navbar__link" data-tr="Hakkımda" data-en="About">Hakkımda</a>
+        <a href="#skills" class="navbar__link" data-tr="Yetkinlikler" data-en="Skills">Yetkinlikler</a>
+        <a href="#experience" class="navbar__link" data-tr="Deneyim" data-en="Experience">Deneyim</a>
+        <a href="#projects" class="navbar__link" data-tr="Projeler" data-en="Projects">Projeler</a>
+        <a href="blog/index.html" class="navbar__link" data-tr="Blog" data-en="Blog">Blog</a>
+        <a href="cv/index.html" class="navbar__link" data-tr="CV" data-en="CV">CV</a>
+        <a href="#contact" class="navbar__link" data-tr="İletişim" data-en="Contact">İletişim</a>
+      </div>
+      <div class="navbar__actions">
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="tr">TR</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menü">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#about" class="mobile-nav__link" data-tr="Hakkımda" data-en="About">Hakkımda</a>
+    <a href="#skills" class="mobile-nav__link" data-tr="Yetkinlikler" data-en="Skills">Yetkinlikler</a>
+    <a href="#experience" class="mobile-nav__link" data-tr="Deneyim" data-en="Experience">Deneyim</a>
+    <a href="#projects" class="mobile-nav__link" data-tr="Projeler" data-en="Projects">Projeler</a>
+    <a href="blog/index.html" class="mobile-nav__link" data-tr="Blog" data-en="Blog">Blog</a>
+    <a href="cv/index.html" class="mobile-nav__link" data-tr="CV" data-en="CV">CV</a>
+    <a href="#contact" class="mobile-nav__link" data-tr="İletişim" data-en="Contact">İletişim</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <canvas class="hero__canvas" id="particleCanvas"></canvas>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <div class="hero__label"
+        data-tr="&lt;span class='dot' style='background: var(--clr-purple); box-shadow: 0 0 8px var(--clr-purple); animation: none;'&gt;&lt;/span&gt; Robotic Software Developer @ LTC Innovation"
+        data-en="&lt;span class='dot' style='background: var(--clr-purple); box-shadow: 0 0 8px var(--clr-purple); animation: none;'&gt;&lt;/span&gt; Robotic Software Developer @ LTC Innovation">
+        <span class="dot"
+          style="background: var(--clr-purple); box-shadow: 0 0 8px var(--clr-purple); animation: none;"></span> Robotic
+        Software Developer @ LTC Innovation
+      </div>
+      <h1 class="hero__name">
+        <span class="first">HARUN</span><br>
+        <span class="last">ENSARİOĞLU</span>
+      </h1>
+      <div class="hero__title-wrapper">
+        <span class="hero__title" id="typingText"></span>
+        <span class="hero__cursor"></span>
+      </div>
+      <div class="hero__actions">
+        <a href="#projects" class="btn btn--primary" data-tr="&lt;i class='fa-solid fa-rocket'&gt;&lt;/i&gt; Projeler"
+          data-en="&lt;i class='fa-solid fa-rocket'&gt;&lt;/i&gt; Projects"><i class="fa-solid fa-rocket"></i>
+          Projeler</a>
+        <a href="Harun_Ensarioglu_CV_TR.pdf" class="btn btn--outline" download
+          data-tr="&lt;i class='fa-solid fa-download'&gt;&lt;/i&gt; CV İndir"
+          data-en="&lt;i class='fa-solid fa-download'&gt;&lt;/i&gt; Download CV"><i class="fa-solid fa-download"></i> CV
+          İndir</a>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      SCROLL
+      <span class="hero__scroll-line"></span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-header__label" data-tr="Hakkımda" data-en="About Me">Hakkımda</div>
+        <h2 class="section-header__title" data-tr="Ben &lt;span class='highlight'&gt;Kimim?&lt;/span&gt;"
+          data-en="Who &lt;span class='highlight'&gt;Am I?&lt;/span&gt;">Ben <span class="highlight">Kimim?</span></h2>
+        <div class="section-header__line"></div>
+      </div>
+      <div class="about__grid">
+        <div class="fade-in-left">
+          <p class="about__text"
+            data-tr="&lt;strong&gt;Yapay zeka, bilgisayar görüsü, İHA'lar ve robotik (dört ayaklı ve insansı sistemler)&lt;/strong&gt;  alanında uzmanlığa sahip bir Bilgisayar Mühendisiyim. Araştırmayı severim, yeni teknolojileri hızlıca keşfederim ve akademik makaleleri düzenli olarak incelerim. İşbirlikçi yenilik yoluyla teknoloji sektörüne anlamlı katkılar sağlamayı hedeflerim."
+            data-en="I am a Computer Engineer with expertise in &lt;strong&gt;artificial intelligence, computer vision, UAVs, and robotics (quadruped and humanoid systems)&lt;/strong&gt; . I love researching, quickly exploring new technologies, and regularly reviewing academic papers. I aim to make meaningful contributions to the tech sector through collaborative innovation.">
+            <strong>Yapay zeka, bilgisayar görüsü, İHA'lar ve robotik</strong> (dört ayaklı ve insansı sistemler)
+            alanında uzmanlığa sahip bir Bilgisayar Mühendisiyim. Araştırmayı severim, yeni teknolojileri hızlıca
+            keşfederim ve akademik makaleleri düzenli olarak incelerim. İşbirlikçi yenilik yoluyla teknoloji sektörüne
+            anlamlı katkılar sağlamayı hedeflerim.
+          </p>
+          <div class="about__stats">
+            <div class="stat-card fade-in delay-1">
+              <div class="stat-card__value">2+</div>
+              <div class="stat-card__label" data-tr="Yıl Deneyim" data-en="Years Experience">Yıl Deneyim</div>
+            </div>
+            <div class="stat-card fade-in delay-2">
+              <div class="stat-card__value">3.68</div>
+              <div class="stat-card__label" data-tr="GPA" data-en="GPA">GPA</div>
+            </div>
+            <div class="stat-card fade-in delay-3">
+              <div class="stat-card__value">4+</div>
+              <div class="stat-card__label" data-tr="Proje" data-en="Projects">Proje</div>
+            </div>
+          </div>
+        </div>
+        <div class="about__image-wrap fade-in-right">
+          <div class="about__image-glow about__image-glow--top"></div>
+          <div class="about__image-glow about__image-glow--bot"></div>
+          <div class="about__image-frame"><img src="my.png" alt="Harun Ensarioğlu"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section section--alt" id="skills">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-header__label" data-tr="Yetkinlikler" data-en="Skills">Yetkinlikler</div>
+        <h2 class="section-header__title" data-tr="Teknoloji &lt;span class='highlight'&gt;Stack&lt;/span&gt;"
+          data-en="Technology &lt;span class='highlight'&gt;Stack&lt;/span&gt;">Teknoloji <span
+            class="highlight">Stack</span></h2>
+        <div class="section-header__line"></div>
+      </div>
+      <div class="skills__grid">
+        <div class="skill-group card fade-in delay-1">
+          <div class="card__icon"><i class="fa-solid fa-code"></i></div>
+          <div class="skill-group__label" data-tr="Programlama Dilleri" data-en="Programming Languages">Programlama
+            Dilleri</div>
+          <div class="skill-group__badges">
+            <span class="badge">Python</span><span class="badge">C++</span><span class="badge">C</span><span
+              class="badge">C#</span><span class="badge">SQL</span>
+          </div>
+        </div>
+        <div class="skill-group card fade-in delay-2">
+          <div class="card__icon"><i class="fa-solid fa-brain"></i></div>
+          <div class="skill-group__label" data-tr="Core Uzmanlık" data-en="Core Expertise">Core Uzmanlık</div>
+          <div class="skill-group__badges">
+            <span class="badge--purple badge">Reinforcement Learning</span><span
+              class="badge--purple badge">LeRobot</span><span class="badge--purple badge">PID</span><span
+              class="badge--purple badge">Image Processing</span><span class="badge--purple badge">Imitation
+              Learning</span>
+          </div>
+        </div>
+        <div class="skill-group card fade-in delay-3">
+          <div class="card__icon"><i class="fa-solid fa-robot"></i></div>
+          <div class="skill-group__label" data-tr="Araçlar & Platformlar" data-en="Tools & Platforms">Araçlar &
+            Platformlar</div>
+          <div class="skill-group__badges">
+            <span class="badge--green badge">ROS</span><span class="badge--green badge">Gazebo</span><span
+              class="badge--green badge">MoveIt</span><span class="badge--green badge">Isaac Sim</span><span
+              class="badge--green badge">Isaac Lab</span><span class="badge--green badge">Isaac Gym</span><span
+              class="badge--green badge">MuJoCo</span><span class="badge--green badge">MATLAB</span><span
+              class="badge--green badge">Linux</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-header__label" data-tr="Deneyim" data-en="Experience">Deneyim</div>
+        <h2 class="section-header__title" data-tr="Kariyer &lt;span class='highlight'&gt;Yolculuğu&lt;/span&gt;"
+          data-en="Career &lt;span class='highlight'&gt;Journey&lt;/span&gt;">Kariyer <span
+            class="highlight">Yolculuğu</span></h2>
+        <div class="section-header__line"></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline__item fade-in">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__period" data-tr="Şub 2024 — Devam Ediyor" data-en="Feb 2024 — Present">Şub 2024 —
+              Devam Ediyor</div>
+            <h3 class="timeline__title" data-tr="Robotik Yazılım Geliştiricisi" data-en="Robotic Software Developer">
+              Robotik Yazılım Geliştiricisi</h3>
+            <div class="timeline__org">LTC Innovation</div>
+            <div class="timeline__bullets">
+              <div class="timeline__bullet"
+                data-tr="NVIDIA Jetson ile AI ve derin öğrenme projeleri için donanım-yazılım entegrasyonu"
+                data-en="Hardware-software integration for AI and deep learning projects with NVIDIA Jetson">NVIDIA
+                Jetson ile AI ve derin öğrenme projeleri için donanım-yazılım entegrasyonu</div>
+              <div class="timeline__bullet"
+                data-tr="Isaac Lab/Gym ile Pekiştirmeli Öğrenme eğitimleri yürütme ve dağıtma"
+                data-en="Executing and deploying Reinforcement Learning trainings with Isaac Lab/Gym">Isaac Lab/Gym ile
+                Pekiştirmeli Öğrenme eğitimleri yürütme ve dağıtma</div>
+              <div class="timeline__bullet" data-tr="İnsansı robotlarla Taklit Öğrenme (Imitation Learning) eğitimleri"
+                data-en="Imitation Learning trainings with humanoid robots">İnsansı robotlarla Taklit Öğrenme (Imitation
+                Learning) eğitimleri</div>
+              <div class="timeline__bullet" data-tr="XR tabanlı teleoperasyon yazılımı geliştirme ve optimizasyonu"
+                data-en="Development and optimization of XR-based teleoperation software">XR tabanlı teleoperasyon
+                yazılımı geliştirme ve optimizasyonu</div>
+              <div class="timeline__bullet" data-tr="ROS ile robot kontrol yazılımı ve sensör veri işleme"
+                data-en="Robot control software and sensor data processing with ROS">ROS ile robot kontrol yazılımı ve
+                sensör veri işleme</div>
+              <div class="timeline__bullet"
+                data-tr="Isaac Sim ile özerk robot simülasyonları (insansı, quadruped, mobil)"
+                data-en="Autonomous robot simulations (humanoid, quadruped, mobile) with Isaac Sim">Isaac Sim ile özerk
+                robot simülasyonları (insansı, quadruped, mobil)</div>
+            </div>
+            <div class="card__badge-row" style="margin-top:var(--space-4)">
+              <span class="badge">NVIDIA Jetson</span><span class="badge">ROS</span><span
+                class="badge--purple badge">Isaac Sim</span><span class="badge--purple badge">PyTorch</span><span
+                class="badge--green badge">MuJoCo</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline__item fade-in">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__period" data-tr="Şub 2024 — Ağu 2024" data-en="Feb 2024 — Aug 2024">Şub 2024 — Ağu
+              2024</div>
+            <h3 class="timeline__title" data-tr="Uzun Dönem Yazılım Stajyeri" data-en="Long-Term Software Intern">Uzun
+              Dönem Yazılım Stajyeri</h3>
+            <div class="timeline__org">Mostas Technology</div>
+            <div class="timeline__bullets">
+              <div class="timeline__bullet" data-tr="DroneKit ve Gazebo ile 3D ortamda İHA simülasyonu"
+                data-en="UAV simulation in 3D environment with DroneKit and Gazebo">DroneKit ve Gazebo ile 3D ortamda
+                İHA simülasyonu</div>
+              <div class="timeline__bullet" data-tr="MAVLink protokolleri ile görüntü iletimi"
+                data-en="Image transmission via MAVLink protocols">MAVLink protokolleri ile görüntü iletimi</div>
+              <div class="timeline__bullet" data-tr="AI tabanlı görüntü işleme ile hastalıklı bitki tespiti"
+                data-en="Diseased plant detection with AI-based image processing">AI tabanlı görüntü işleme ile
+                hastalıklı bitki tespiti</div>
+              <div class="timeline__bullet" data-tr="ASP.NET Core MVC ve React JS ile drone yönetim platformu"
+                data-en="Drone management platform with ASP.NET Core MVC and React JS">ASP.NET Core MVC ve React JS ile
+                drone yönetim platformu</div>
+            </div>
+            <div class="card__badge-row" style="margin-top:var(--space-4)">
+              <span class="badge">DroneKit</span><span class="badge">Gazebo</span><span
+                class="badge--purple badge">OpenCV</span><span class="badge--green badge">React JS</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline__item fade-in">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__period" data-tr="Eyl 2021 — Tem 2025" data-en="Sep 2021 — Jul 2025">9/2021 — 7/2025
+            </div>
+            <h3 class="timeline__title" data-tr="Bilgisayar Mühendisliği" data-en="Computer Engineering">Bilgisayar
+              Mühendisliği</h3>
+            <div class="timeline__org" data-tr="İstanbul Gedik Üniversitesi" data-en="Istanbul Gedik University">
+              İstanbul Gedik Üniversitesi</div>
+            <div class="timeline__bullets">
+              <div class="timeline__bullet" data-tr="GPA: 3.68 — Bölüm 2.'si, Fakülte 3.'sü"
+                data-en="GPA: 3.68 — 2nd in Department, 3rd in Faculty">GPA: 3.68 — Bölüm 2.'si, Fakülte 3.'sü</div>
+              <div class="timeline__bullet" data-tr="Arkhe İHA Takım Kaptanı" data-en="Arkhe UAV Team Captain">Arkhe İHA
+                Takım Kaptanı</div>
+              <div class="timeline__bullet" data-tr="Danışma Kurulu Üyesi — Bilgisayar ve Yazılım Müh."
+                data-en="Advisory Board Member — Computer and Software Engineering">Danışma Kurulu Üyesi — Bilgisayar ve
+                Yazılım Müh.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section section--alt" id="projects">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-header__label" data-tr="Projeler" data-en="Projects">Projeler</div>
+        <h2 class="section-header__title" data-tr="Öne Çıkan &lt;span class='highlight'&gt;Projeler&lt;/span&gt;"
+          data-en="Featured &lt;span class='highlight'&gt;Projects&lt;/span&gt;">Öne Çıkan <span
+            class="highlight">Projeler</span></h2>
+        <div class="section-header__line"></div>
+      </div>
+      <div class="projects__grid">
+        <div class="card card--project fade-in delay-1">
+          <div class="card__icon"><i class="fa-solid fa-helicopter"></i></div>
+          <h3 class="card__title" data-tr="NMPC vs PID — İHA Yönsel Kararlılık"
+            data-en="NMPC vs PID — UAV Directional Stability">NMPC vs PID — İHA Yönsel Kararlılık</h3>
+          <p class="card__desc"
+            data-tr="TÜBİTAK 2209-A projesi. Dört rotorlu İHA modelinde NMPC ve PID kontrol yöntemlerinin karşılaştırması. Simülasyon ve gerçek zamanlı deneyler."
+            data-en="TÜBİTAK 2209-A project. Comparison of NMPC and PID control methods in a quadrotor UAV model. Simulation and real-time experiments.">
+            TÜBİTAK 2209-A projesi. Dört rotorlu İHA modelinde NMPC ve PID kontrol yöntemlerinin karşılaştırması.
+            Simülasyon ve gerçek zamanlı deneyler.</p>
+          <div class="card__badge-row">
+            <span class="badge">NMPC</span><span class="badge">PID</span><span class="badge--purple badge">UAV</span>
+          </div>
+        </div>
+        <div class="card card--project fade-in delay-2">
+          <div class="card__icon"><i class="fa-solid fa-plane-arrival"></i></div>
+          <h3 class="card__title" data-tr="Hareketli Platforma İHA İnişi" data-en="UAV Landing on Moving Platform">
+            Hareketli Platforma İHA İnişi</h3>
+          <p class="card__desc"
+            data-tr="Lisans Tezi. ArUco işaretleyicileri ile düşük maliyetli İHA iniş sistemi. Ubuntu, ROS, Gazebo ve ArduPilot SITL."
+            data-en="Bachelor's Thesis. Low-cost UAV landing system using ArUco markers. Ubuntu, ROS, Gazebo, and ArduPilot SITL.">
+            Lisans Tezi. ArUco işaretleyicileri ile düşük maliyetli İHA iniş sistemi. Ubuntu, ROS, Gazebo ve ArduPilot
+            SITL.</p>
+          <div class="card__badge-row">
+            <span class="badge">ROS</span><span class="badge">Gazebo</span><span
+              class="badge--green badge">ArduPilot</span>
+          </div>
+          <div class="card__link-row">
+            <a href="https://github.com/HarunEnsar/moving_platform_uav_landing" target="_blank" class="card__link"><i
+                class="fa-brands fa-github"></i> GitHub →</a>
+          </div>
+        </div>
+        <div class="card card--project fade-in delay-3">
+          <div class="card__icon"><i class="fa-solid fa-trophy"></i></div>
+          <h3 class="card__title" data-tr="TEKNOFEST Yarışmaları" data-en="TEKNOFEST Competitions">TEKNOFEST Yarışmaları
+          </h3>
+          <p class="card__desc"
+            data-tr="Ulaşımda Yapay Zeka, Uluslararası İHA ve Tarımsal Teknolojiler yarışmalarına katılım."
+            data-en="Participation in AI in Transportation, International UAV, and Agricultural Technologies competitions.">
+            Ulaşımda Yapay Zeka, Uluslararası İHA ve Tarımsal Teknolojiler yarışmalarına katılım.</p>
+          <div class="card__badge-row">
+            <span class="badge--purple badge">Computer Vision</span><span class="badge">UAV</span><span
+              class="badge--green badge">AI</span>
+          </div>
+        </div>
+        <div class="card card--project fade-in delay-4">
+          <div class="card__icon"><i class="fa-solid fa-mobile-screen"></i></div>
+          <h3 class="card__title" data-tr="Explore Türkiye Android App" data-en="Explore Turkey Android App">Explore
+            Türkiye Android App</h3>
+          <p class="card__desc"
+            data-tr="Türkiye'de ziyaret edilmesi gereken destinasyonları gösteren Flutter uygulaması."
+            data-en="Flutter application showing must-visit destinations in Turkey.">Türkiye'de ziyaret edilmesi gereken
+            destinasyonları gösteren Flutter uygulaması.</p>
+          <div class="card__badge-row">
+            <span class="badge">Flutter</span><span class="badge--purple badge">Dart</span><span
+              class="badge--green badge">Android</span>
+          </div>
+          <div class="card__link-row">
+            <a href="https://github.com/HarunEnsar/Explore_Turkiye_Android_App" target="_blank" class="card__link"><i
+                class="fa-brands fa-github"></i> GitHub →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-header__label" data-tr="İletişim" data-en="Contact">İletişim</div>
+        <h2 class="section-header__title" data-tr="Bana &lt;span class='highlight'&gt;Ulaşın&lt;/span&gt;"
+          data-en="Get In &lt;span class='highlight'&gt;Touch&lt;/span&gt;">Bana <span class="highlight">Ulaşın</span>
+        </h2>
+        <div class="section-header__line"></div>
+      </div>
+      <div class="contact__grid">
+        <div class="contact__info fade-in-left">
+          <a href="mailto:ensariharun4934@gmail.com" class="contact__item">
+            <div class="contact__item-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="contact__item-text">
+              <h4>Email</h4>
+              <p>ensariharun4934@gmail.com</p>
+            </div>
+          </a>
+          <a href="https://github.com/HarunEnsar" target="_blank" class="contact__item">
+            <div class="contact__item-icon"><i class="fa-brands fa-github"></i></div>
+            <div class="contact__item-text">
+              <h4>GitHub</h4>
+              <p>github.com/HarunEnsar</p>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/harun-ensarioğlu/" target="_blank" class="contact__item">
+            <div class="contact__item-icon"><i class="fa-brands fa-linkedin"></i></div>
+            <div class="contact__item-text">
+              <h4>LinkedIn</h4>
+              <p>/in/harun-ensarioğlu</p>
+            </div>
+          </a>
+          <div class="contact__item">
+            <div class="contact__item-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="contact__item-text">
+              <h4 data-tr="Konum" data-en="Location">Konum</h4>
+              <p data-tr="İstanbul, Türkiye" data-en="Istanbul, Turkey">İstanbul, Türkiye</p>
+            </div>
+          </div>
+        </div>
+        <div class="fade-in-right">
+          <div class="terminal">
+            <div class="terminal__header">
+              <span class="terminal__dot terminal__dot--red"></span>
+              <span class="terminal__dot terminal__dot--yellow"></span>
+              <span class="terminal__dot terminal__dot--green"></span>
+              <span class="terminal__title">contact.sh</span>
+            </div>
+            <div class="terminal__body">
+              <div><span class="terminal__prompt">$ </span><span class="terminal__cmd">whoami</span></div>
+              <div><span class="terminal__output">Harun Ensarioğlu</span></div>
+              <br>
+              <div><span class="terminal__prompt">$ </span><span class="terminal__cmd">cat role.txt</span></div>
+              <div><span class="terminal__output">Robotic Software Developer @ LTC Innovation</span></div>
+              <br>
+              <div><span class="terminal__prompt">$ </span><span class="terminal__cmd">echo $INTERESTS</span></div>
+              <div><span class="terminal__output">Humanoid Robotics, Quadruped Systems, RL</span></div>
+              <br>
+              <div><span class="terminal__prompt">$ </span><span class="terminal__cmd">ping collaboration</span></div>
+              <div><span class="terminal__output" data-tr="✓ Yeni fırsatlara her zaman açığım!"
+                  data-en="✓ Always open for new opportunities!">✓ Yeni fırsatlara her zaman açığım!</span></div>
+              <br>
+              <div><span class="terminal__prompt">$ </span><span class="terminal__cursor"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <span class="footer__logo">H<span>.</span>E</span>
+          <p class="footer__tagline"
+            data-tr="Robotik Yazılım Geliştirici. Yapay zeka, insansı ve dört ayaklı robotik sistemler üzerine çalışıyorum."
+            data-en="Robotic Software Developer. I work on artificial intelligence, humanoid, and quadruped robotic systems.">
+            Robotik Yazılım Geliştirici. Yapay zeka, insansı ve dört ayaklı robotik sistemler üzerine çalışıyorum.</p>
+        </div>
+        <div>
+          <h4 class="footer__nav-title" data-tr="Navigasyon" data-en="Navigation">Navigasyon</h4>
+          <div class="footer__nav-links">
+            <a href="#about" class="footer__nav-link" data-tr="Hakkımda" data-en="About">Hakkımda</a>
+            <a href="#skills" class="footer__nav-link" data-tr="Yetkinlikler" data-en="Skills">Yetkinlikler</a>
+            <a href="#experience" class="footer__nav-link" data-tr="Deneyim" data-en="Experience">Deneyim</a>
+            <a href="#projects" class="footer__nav-link" data-tr="Projeler" data-en="Projects">Projeler</a>
+            <a href="blog/index.html" class="footer__nav-link" data-tr="Blog" data-en="Blog">Blog</a>
+            <a href="cv/index.html" class="footer__nav-link" data-tr="CV" data-en="CV">CV</a>
+            <a href="#contact" class="footer__nav-link" data-tr="İletişim" data-en="Contact">İletişim</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__nav-title" data-tr="Sosyal" data-en="Social">Sosyal</h4>
+          <div class="footer__socials">
+            <a href="https://github.com/HarunEnsar" target="_blank" class="social-icon" aria-label="GitHub"><i
+                class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/harun-ensarioğlu/" target="_blank" class="social-icon"
+              aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="mailto:ensariharun4934@gmail.com" class="social-icon" aria-label="Email"><i
+                class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__copy" data-tr="© 2025 Harun Ensarioğlu. &lt;span&gt;Tüm hakları saklıdır.&lt;/span&gt;"
+          data-en="© 2025 Harun Ensarioğlu. &lt;span&gt;All rights reserved.&lt;/span&gt;">© 2025 Harun Ensarioğlu.
+          <span>Tüm hakları saklıdır.</span>
+        </div>
+        <div class="footer__made">Made by Harun Ensarioğlu</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" id="scrollTop" aria-label="Yukarı"><i class="fa-solid fa-chevron-up"></i></button>
+
+  <script src="assets/js/particles.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

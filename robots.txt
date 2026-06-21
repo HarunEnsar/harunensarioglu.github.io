@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://harunensarioglu.github.io/sitemap.xml
