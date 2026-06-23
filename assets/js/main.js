@@ -68,14 +68,27 @@
 
   // Language toggle
   const langBtns = document.querySelectorAll('.lang-btn');
+  const cvBtn = document.querySelector('a[download]');
+  const cvFiles = {
+    tr: 'Harun_Ensarioglu_CV_TR.pdf',
+    en: 'Harun_Ensarioglu_CV_EN.pdf'
+  };
+
   langBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       langBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const lang = btn.dataset.lang;
+
+      // Update all translatable text
       document.querySelectorAll('[data-tr][data-en]').forEach(el => {
         el.innerHTML = el.dataset[lang];
       });
+
+      // Update CV download link to match selected language
+      if (cvBtn && cvFiles[lang]) {
+        cvBtn.href = cvFiles[lang];
+      }
     });
   });
 })();

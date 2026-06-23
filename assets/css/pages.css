@@ -26,6 +26,7 @@
   inset: 0;
   background: radial-gradient(ellipse at 50% 50%, transparent 0%, var(--clr-bg) 75%);
   z-index: 1;
+  pointer-events: none;
 }
 
 .hero__content {
@@ -62,21 +63,26 @@
 }
 
 .hero__name {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 7vw, 5rem);
+  /* Exo 2: tech/futuristic font with full Turkish character support */
+  font-family: 'Exo 2', 'Space Grotesk', sans-serif;
+  font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 900;
-  letter-spacing: 0.04em;
-  line-height: 1.1;
+  letter-spacing: 0.06em;
+  line-height: 1.0;
   margin-bottom: var(--space-4);
   animation: fadeInUp 0.8s ease-out 0.2s both;
+  text-transform: uppercase;
 }
 
+.hero__name .first,
+.hero__name .last {
+  display: block;
+}
 .hero__name .first { color: var(--clr-text-primary); }
 .hero__name .last {
-  background: var(--gradient-main);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--clr-cyan);
+  text-shadow: 0 0 30px rgba(0, 229, 255, 0.5), 0 0 60px rgba(0, 229, 255, 0.2);
+  letter-spacing: 0.02em; /* slightly tighter to fit the longer word */
 }
 
 .hero__title-wrapper {
@@ -164,10 +170,18 @@
 }
 
 .about__text {
-  font-size: var(--fs-lg);
+  font-size: var(--fs-base);
   color: var(--clr-text-secondary);
   line-height: 1.8;
   margin-bottom: var(--space-8);
+}
+
+.about__text p {
+  margin-bottom: var(--space-4);
+}
+
+.about__text p:last-child {
+  margin-bottom: 0;
 }
 
 .about__text strong {
@@ -247,7 +261,14 @@
   .skills__grid { grid-template-columns: 1fr; }
 }
 
+
 /* --------------------------------------------------------------------------
+   EDUCATION SECTION
+   -------------------------------------------------------------------------- */
+/* Uses the same .timeline styles from components.css - no extra CSS needed */
+
+/* --------------------------------------------------------------------------
+
    PROJECTS GRID
    -------------------------------------------------------------------------- */
 .projects__grid {

@@ -462,11 +462,12 @@
 }
 
 .skill-group__label {
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  color: var(--clr-text-muted);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  font-weight: 700;
+  color: var(--clr-cyan);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   display: flex;
   align-items: center;
   gap: var(--space-2);
